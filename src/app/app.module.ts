@@ -9,6 +9,8 @@ import { MySurveysComponent } from './components/my-surveys/my-surveys.component
 import { AnswerSurveyComponent } from './components/answer-survey/answer-survey.component';
 import { HomeComponent } from './components/home/home.component';
 import { CheckResponsesComponent } from './components/check-responses/check-responses.component';
+import { MatFormFieldModule, MatGridListModule, MatIconModule, MatInputModule, MatNativeDateModule, MatRadioModule, MatSelectModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,15 @@ import { CheckResponsesComponent } from './components/check-responses/check-resp
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
+    MatInputModule,
+    MatSelectModule,
+    MatIconModule,
+    MatRadioModule,
+    MatGridListModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
