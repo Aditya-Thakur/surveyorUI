@@ -1,3 +1,150 @@
-<p>
-  login works!
-</p>
+<br>
+<div class="container mybox">
+  <div class="row">
+    <!-- <div class="col-md-12 userMessage">{{user.message}}</div> -->
+  </div>
+  <div class="row justify-content-center">
+    <div class="text-center mr-auto">
+      <div class="card bg-info text-white">
+        <!-- Login form starts -->
+        <form *ngIf="showLoginForm" class="form" [formGroup]="loginForm" autocomplete="off">
+          <div class="card-header">
+            <div class="text-center">
+              Login
+            </div>
+          </div>
+          <div class="card-body form-active">
+            <div class="form-group">
+              <label>Enter your registered email!</label>
+              <input type="email" class="form-control" formControlName="email">
+              <div
+                *ngIf="loginForm.controls.email.invalid && (loginForm.controls.email.dirty || loginForm.controls.email.touched)"
+                class="alert alert-warning">
+                <div *ngIf="loginForm.controls.email.errors.required">
+                  Email is required.
+                </div>
+                <div *ngIf="loginForm.controls.email.errors.pattern">
+                  Email must be valid.
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Enter your password!</label>
+              <input type="password" class="form-control" formControlName="password">
+              <div
+                *ngIf="loginForm.controls.password.invalid && (loginForm.controls.password.dirty || loginForm.controls.password.touched)"
+                class="alert alert-warning">
+                <div *ngIf="loginForm.controls.password.errors.required">
+                  Password is required.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer col text-center">
+            <button type="submit" [disabled]="loginForm.invalid" class="btn btn-success"
+              (click)="login()">Login</button><br><br>
+            <div *ngIf="showErrorMessage" class="alert alert-danger">Something is wrong! Try again!</div>
+            <div class="secondary">Not registered yet!
+              <button class="btn btn-secondary btn-sm" (click)="activateRegister()">Sign Up</button>
+              now</div>
+
+          </div>
+        </form>
+        <!-- Login form ends -->
+        <!-- Signup form starts -->
+        <form *ngIf="showRegisterForm" class="form" [formGroup]="registerForm" autocomplete="off">
+          <div class="card-header">
+            <div class="text-center">
+              Sign Up
+            </div>
+          </div>
+          <div class="card-body form-active">
+            <div class="form-group">
+              <label>Enter your full name!</label>
+              <input type="text" class="form-control" formControlName="fullName">
+              <div
+                *ngIf="registerForm.controls.fullName.invalid && (registerForm.controls.fullName.dirty || registerForm.controls.fullName.touched)"
+                class="alert alert-warning">
+                <div *ngIf="registerForm.controls.fullName.errors.required">
+                  Name is required.
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Enter your email!</label>
+              <input type="email" class="form-control" formControlName="email">
+              <div
+                *ngIf="registerForm.controls.email.invalid && (registerForm.controls.email.dirty || registerForm.controls.email.touched)"
+                class="alert alert-warning">
+                <div *ngIf="registerForm.controls.email.errors.required">
+                  Email is required.
+                </div>
+                <div *ngIf="registerForm.controls.email.errors.pattern">
+                  Email must be valid.
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Select your gender!</label>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" formControlName="gender" value="male" id="customRadioInline1" name="gender" class="custom-control-input">
+                <label class="custom-control-label" for="customRadioInline1">Male</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" formControlName="gender" value="female" id="customRadioInline2" name="gender" class="custom-control-input">
+                <label class="custom-control-label" for="customRadioInline2">Female</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" formControlName="gender" value="other" id="customRadioInline2" name="gender" class="custom-control-input">
+                <label class="custom-control-label" for="customRadioInline2">Other</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Select your Date of Birth!</label>
+              <input class="form-control" formControlName="dob" type="date" id="example-date-input">
+              <div
+                *ngIf="registerForm.controls.dob.invalid && (registerForm.controls.dob.dirty || registerForm.controls.dob.touched)"
+                class="alert alert-warning">
+                <div *ngIf="registerForm.controls.dob.errors.required">
+                  Date Of Birth is required.
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+                <label>Enter your phone number!</label>
+                <input type="number" class="form-control" formControlName="mobileNumber">
+                <div
+                  *ngIf="registerForm.controls.mobileNumber.invalid && (registerForm.controls.mobileNumber.dirty || registerForm.controls.mobileNumber.touched)"
+                  class="alert alert-warning">
+                  <div *ngIf="registerForm.controls.mobileNumber.errors.required">
+                    Mobile number is required.
+                  </div>
+                </div>
+              </div>
+            <div class="form-group">
+              <label>Enter your password!</label>
+              <input type="password" class="form-control" formControlName="password">
+              <div
+                *ngIf="registerForm.controls.password.invalid && (registerForm.controls.password.dirty || registerForm.controls.password.touched)"
+                class="alert alert-warning">
+                <div *ngIf="registerForm.controls.password.errors.required">
+                  Password is required.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer col text-center">
+            <button type="submit" [disabled]="registerForm.invalid" class="btn btn-success" (click)="register()">Sign
+              Up</button><br><br>
+            <div *ngIf="showErrorMessage" class="alert alert-danger">Something is wrong! Try again!</div>
+            <div class="secondary">Already registered!
+              <button class="btn btn-secondary btn-sm" (click)="activateLogin()">Login</button>
+              now</div>
+
+          </div>
+        </form>
+        <!-- Signup form ends -->
+      </div>
+    </div>
+  </div>
+</div>
