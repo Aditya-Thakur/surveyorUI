@@ -1,0 +1,23 @@
+<div *ngIf="questionType == 'SA' || questionType == 'LA' || questionType == 'R'">
+  <h4>Enter question below:</h4>
+  <mat-form-field style="width:100%" appearance="fill">
+    <mat-label>Question</mat-label>
+    <input [(ngModel)]="currentQuestion" matInput #newQuestion>
+  </mat-form-field>
+  <button mat-raised-button color="accent" (click)="addNewQuestion(newQuestion.value)">Add Question <mat-icon>add_circle_outline</mat-icon></button>
+</div>
+<div *ngIf="questionType == 'MC' || questionType == 'CB'">
+  <h4>Enter question below:</h4>
+  <mat-form-field style="width:100%" appearance="fill">
+    <mat-label>Question</mat-label>
+    <input [(ngModel)]="currentQuestion" matInput #newQuestion>
+  </mat-form-field>
+  <h4>Options</h4>  
+  <ul>
+    <li *ngFor="let option of optionList">{{option}}</li>
+  </ul>
+  <app-add-option-bar  [questionType]="questionType" (newItemEvent)="addOption($event)"></app-add-option-bar>
+  <button mat-raised-button color="accent" (click)="addNewQuestion(newQuestion.value)">Add Question <mat-icon>add_circle_outline</mat-icon></button>
+</div>
+
+

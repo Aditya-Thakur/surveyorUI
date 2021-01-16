@@ -1,0 +1,16 @@
+.customSelectMenu .mat-form-field-appearance-legacy .mat-form-field-underline {
+    height: 0 !important;
+  }
+  
+  button.roundedButton.mat-raised-button {
+    width: 100%;
+    text-align: left;
+    border-radius: 50px;
+    box-shadow: none !important;
+  }
+  
+  .selection-icon {
+    position: relative;
+    top: 6px;
+    margin-right: 16px;
+  }

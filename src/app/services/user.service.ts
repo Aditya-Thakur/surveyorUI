@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { throwError } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { User } from '../models/user';
@@ -23,13 +23,8 @@ export class UserService {
     })
     .catch(err => this.handleError(err));
   }
-  login(data) {
-    return this.http.post(environment.backendUrl + `user/login`, data).toPromise()
-    .then( res => {
-      console.log(res);
-      return res as User;
-    })
-    .catch(err => this.handleError(err));
+  login(data) : Observable<any> {
+    return this.http.post(environment.backendUrl + `user/login`, data) as Observable<any>;
   }
 
   private handleError(error: HttpErrorResponse) {

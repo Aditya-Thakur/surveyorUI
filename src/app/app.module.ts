@@ -10,13 +10,17 @@ import { MySurveysComponent } from './components/my-surveys/my-surveys.component
 import { AnswerSurveyComponent } from './components/answer-survey/answer-survey.component';
 import { HomeComponent } from './components/home/home.component';
 import { CheckResponsesComponent } from './components/check-responses/check-responses.component';
-import { MatFormFieldModule, MatGridListModule, MatIconModule, MatInputModule, MatNativeDateModule, MatRadioModule, MatSelectModule, MatTabsModule } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatDatepickerModule, MatDividerModule, MatFormFieldModule, MatGridListModule, MatIconModule, MatInputModule, MatNativeDateModule, MatRadioModule, MatSelectModule, MatTableModule, MatTabsModule, MatTooltip, MatTooltipModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
-
+import {MatCardModule} from '@angular/material/card';
+import { QuestionBarComponent } from './components/shared/question-bar/question-bar.component';
+import { AddQuestionBarComponent } from './components/shared/add-question-bar/add-question-bar.component';
+import { AddOptionBarComponent } from './components/shared/add-option-bar/add-option-bar.component';
+import { StarRatingComponent } from './components/shared/star-rating/star-rating.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +31,11 @@ import { FooterComponent } from './components/shared/footer/footer.component';
     HomeComponent,
     CheckResponsesComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    QuestionBarComponent,
+    AddQuestionBarComponent,
+    AddOptionBarComponent,
+    StarRatingComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +52,14 @@ import { FooterComponent } from './components/shared/footer/footer.component';
     MatRadioModule,
     MatGridListModule,
     BrowserAnimationsModule,
-    MatTabsModule
+    MatTabsModule,
+    MatCardModule,
+    MatButtonModule,
+    MatTooltipModule,
+    MatCheckboxModule,
+    MatDatepickerModule,
+    MatTableModule,
+    MatDividerModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

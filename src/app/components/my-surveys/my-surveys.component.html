@@ -1,3 +1,55 @@
-<p>
-  my-surveys works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="card p-2">
+        <div class="card-header">
+           Your Surveys
+        </div>
+        <div class="Card-body">
+          <div class="container">
+          <div class="row p-2">
+            <div *ngFor="let survey of surveyList; index as i">
+              <div class="col">
+                <div class="card bg-info text-white p-2">
+                  <div class="Card-body">
+                    <h4>Survey {{i + 1}}</h4>
+                    <mat-divider></mat-divider>
+                    <div class="row">
+                      <div class="col">Link: </div>
+                      <div class="col"><a>{{survey._id}}</a></div>
+                    </div>
+                    <mat-divider></mat-divider>
+                    <div class="row">
+                      <div class="col">Created On: </div>
+                  <div class="col">{{survey.createdOn | date:'mediumDate'}}</div>
+                    </div>
+                    <mat-divider></mat-divider>
+                    <div class="row">
+                      <div class="col">Status: </div>
+                      <div class="col">
+                        <span *ngIf="survey.active">Active</span>
+                        <span *ngIf="!survey.active">Inactive</span>
+                      </div>
+                    </div>
+                    <mat-divider></mat-divider>
+                    <div class="row">
+                      <div class="col">Valid Till: </div>
+                      <div class="col">{{survey.validTill | date:'mediumDate'}}</div>
+                    </div>
+                    <mat-divider></mat-divider>
+                    <div class="row">
+                      <div class="col"></div>
+                      <div class="col">
+                        <button mat-raised-button color="accent">Share</button>
+                      </div>
+                    </div>
+                   </div>  
+                 </div>
+              </div>
+            </div>
+          </div></div>
+        </div>  
+      </div>
+    </div>
+  </div>
+</div>

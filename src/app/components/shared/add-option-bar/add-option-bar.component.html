@@ -1,0 +1,8 @@
+<div *ngIf="questionType == 'MC' || questionType == 'CB'">
+  <mat-form-field appearance="fill">
+    <mat-label>Option</mat-label>
+    <input [(ngModel)]="currentOption" matInput #newItem>
+  </mat-form-field>
+  <button mat-button color="primary" (click)="addNewItem(newItem.value)">Add option</button>
+</div>
+

@@ -1,4 +1,5 @@
 export class Survey {
+    _id : string;
     createdBy : string;
     createdOn : Date;
     validTill : Date;
@@ -9,9 +10,6 @@ export class Survey {
 export class question  {
     questionType : string;
     questionContent : string;
-    optionList : option[];
+    optionList : string[];
 }
 
-export class option {
-    value: string;
-}

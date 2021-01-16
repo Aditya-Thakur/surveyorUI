@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
+import { environment } from 'src/environments/environment';
+import { map, catchError } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +18,7 @@ export class LoginComponent implements OnInit {
   userMessage;
   loginForm;
   registerForm;
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private router: Router) {
     this.loginForm = new FormGroup({
       email: new FormControl('',
       [
@@ -59,10 +62,18 @@ export class LoginComponent implements OnInit {
 
   login() {
     console.log(this.loginForm.value);
-    this.userService.login(this.loginForm.value).then(
-      res => {
-    console.log(res);
-      });
+    this.userService.login(this.loginForm.value).subscribe(
+      (res) => {
+        console.log(JSON.stringify(res));
+        environment.currentUser.fullName = res.fullName;
+        environment.currentUser.email = res.email;
+        environment.currentUser.gender = res.gender;
+        environment.currentUser.dob = res.dob;
+        environment.currentUser.mobileNumber = res.mobileNumber;
+        this.router.navigateByUrl('/dashboard');
+      }
+
+    )
   }
 
   register() {
@@ -73,7 +84,7 @@ this.userService.register(this.registerForm.value).then(
 // this.userMessage = res.message;
 // }
 console.log(res);
-
+window.location.reload();
   }
 );
   }

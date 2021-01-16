@@ -1,3 +1,61 @@
-<p>
-  create-survey works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="card bg-info text-white p-2">
+        <div class="card-header">
+          <div class="toolbox">
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  <mat-form-field appearance="fill">
+                    <mat-label>Select Question Type</mat-label>
+                    <mat-select [(ngModel)]="selectedValue" name="questionType" [(value)]="selected2"
+                      [compareWith]="compareFn">
+                      <mat-select-trigger>
+                        <mat-icon class="selection-icon">{{selected2.icon}}</mat-icon>{{selected2.name}}
+                      </mat-select-trigger>
+                      <mat-option *ngFor="let qt of questionTypes" [value]="qt">
+                        <mat-icon>{{qt.icon}}</mat-icon>
+                        {{qt.name}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="Card-body">
+          <app-add-question-bar [questionType] = "selected2.alias" (newQuestionEvent)="addQuestion($event)"></app-add-question-bar>
+        </div>  
+      </div>
+    </div>
+    <div class="col">
+      <div class="card bg-info text-white p-2">
+        <div class="card-header">
+          Your Survey Form
+        </div>
+        <div class="Card-body">
+          <div *ngFor="let q of questionList; index as i">
+          {{i + 1}}. <app-question-bar [question] = "q"></app-question-bar>
+          </div>  
+        </div>  
+        <div class="card-footer">
+          <div class="row">
+            <div class="col">
+              <mat-form-field appearance="fill">
+                <mat-label>Survey End Date</mat-label>
+                <input matInput [matDatepicker]="picker" [(ngModel)]="lastDate">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <button mat-raised-button (click)="uploadForm()">Save Form<mat-icon>publish</mat-icon></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
