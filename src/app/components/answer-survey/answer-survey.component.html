@@ -7,9 +7,14 @@
         </div>
         <div class="Card-body">
           <div class="container">
-            <div class="row p-2" *ngFor="let q of survey.question; index as i">
-              {{i + 1}}. <app-answer-bar [question] = "q"></app-answer-bar>
+            <div class="row">
+              <div class="col">
+                <div class="p-2" *ngFor="let q of survey.question; index as i">
+                  {{i + 1}}. <app-answer-bar [question] = "q"></app-answer-bar>
+                </div>
+              </div>
             </div>
+            
           </div>
         </div>
         <div class="card-footer">
