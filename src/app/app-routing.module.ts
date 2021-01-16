@@ -10,7 +10,7 @@ import { MySurveysComponent } from './components/my-surveys/my-surveys.component
 const routes: Routes = [
   {path : '', component: HomeComponent},
   {path : 'create', component: CreateSurveyComponent},
-  {path : 'answer:id', component: AnswerSurveyComponent},
+  {path : 'survey/:id', component: AnswerSurveyComponent},
   {path : 'login', component: LoginComponent},
   {path : 'view', component: CheckResponsesComponent},
   {path: 'dashboard', component: MySurveysComponent}

@@ -21,6 +21,7 @@ import { QuestionBarComponent } from './components/shared/question-bar/question-
 import { AddQuestionBarComponent } from './components/shared/add-question-bar/add-question-bar.component';
 import { AddOptionBarComponent } from './components/shared/add-option-bar/add-option-bar.component';
 import { StarRatingComponent } from './components/shared/star-rating/star-rating.component';
+import { AnswerBarComponent } from './components/shared/answer-bar/answer-bar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +36,8 @@ import { StarRatingComponent } from './components/shared/star-rating/star-rating
     QuestionBarComponent,
     AddQuestionBarComponent,
     AddOptionBarComponent,
-    StarRatingComponent
+    StarRatingComponent,
+    AnswerBarComponent
   ],
   imports: [
     BrowserModule,

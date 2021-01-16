@@ -1,3 +1,21 @@
-<p>
-  answer-survey works!
-</p>
+<div class="container" *ngIf="survey">
+  <div class="row">
+    <div class="col">
+      <div class="card bg-info text-white p-2">
+        <div class="card-header">
+          Survey by {{survey.createdBy}}
+        </div>
+        <div class="Card-body">
+          <div class="container">
+            <div class="row p-2" *ngFor="let q of survey.question; index as i">
+              {{i + 1}}. <app-answer-bar [question] = "q"></app-answer-bar>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button mat-raised-button color="accent" (click)="addNewResponse(newQuestion.value)">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

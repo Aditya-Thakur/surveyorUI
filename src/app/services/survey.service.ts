@@ -14,6 +14,10 @@ export class SurveyService {
     return this.http.post(environment.backendUrl + `survey/fetchMySurveys`, data) as Observable<any>;
   }
 
+  fetchThisSurvey(id): Observable<any> {
+    return this.http.get(environment.backendUrl + `survey/getSurvey`+id) as Observable<any>;
+  }
+
   uploadSurvey(data) {
     return this.http.post(environment.backendUrl + `survey/createSurvey`, data).toPromise()
     .then( res => {

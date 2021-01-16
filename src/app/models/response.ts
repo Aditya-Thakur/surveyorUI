@@ -6,9 +6,5 @@ export class Response {
 export class answer  {
     questionType : string;
     userResponse : string;
-    optionList : option[];
-}
-
-export class option {
-    value: string;
+    optionList : string[];
 }

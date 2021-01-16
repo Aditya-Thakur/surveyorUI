@@ -1,0 +1,30 @@
+{{question.questionContent}}
+<div *ngIf="question.questionType == 'SA'">
+  <mat-form-field style="width:100%" appearance="fill">
+    <input matInput>
+  </mat-form-field>
+</div>  
+<div *ngIf="question.questionType == 'LA'">
+  <mat-form-field style="width:100%" appearance="fill">
+    <textarea matInput></textarea>
+  </mat-form-field>
+</div>
+<div *ngIf="question.questionType == 'CB'">
+  <section class="example-section">
+    <div *ngFor="let option of question.optionList">
+      <mat-checkbox  class="example-margin">
+        {{option}}
+      </mat-checkbox>
+    </div>
+  </section>
+</div>
+<div *ngIf="question.questionType == 'MC'">
+  <mat-radio-group>
+    <div *ngFor="let option of question.optionList">
+        <mat-radio-button>{{option}}</mat-radio-button>
+    </div>
+  </mat-radio-group>
+</div>
+<div *ngIf="question.questionType == 'R'">
+  <app-star-rating [rating]="rating"  [starCount]="starCount" [color]="starColor" (ratingUpdated)="onRatingChanged($event)"></app-star-rating>
+</div>
