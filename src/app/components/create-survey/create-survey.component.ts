@@ -11,6 +11,7 @@ import { environment } from 'src/environments/environment';
 export class CreateSurveyComponent implements OnInit {
 
   questionTypes = environment.questionCategories;
+  user = environment.currentUser;
   selected2 = this.questionTypes[0];
   lastDate: Date;
   constructor(private surveyService: SurveyService, private router: Router) { }

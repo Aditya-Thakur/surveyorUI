@@ -11,6 +11,7 @@ import { environment } from 'src/environments/environment';
 export class MySurveysComponent implements OnInit {
 
   surveyList = [];
+  user = environment.currentUser;
   constructor(private surveyService: SurveyService) { }
 
   ngOnInit() {
