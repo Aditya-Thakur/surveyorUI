@@ -5,9 +5,12 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link" [routerLink]='["/create"]' routerLinkActive="active">New Survey</a>
-      <a class="nav-item nav-link" [routerLink]='["/dashboard"]' routerLinkActive="active">Dashboard</a>
-      <a class="nav-item nav-link" [routerLink]='["/login"]' routerLinkActive="active">Login</a>
+      <a *ngIf="user.email !== ''; else create" class="nav-item nav-link" [routerLink]='["/create"]' routerLinkActive="active">New Survey</a>
+      <a *ngIf="user.email !== ''" class="nav-item nav-link" [routerLink]='["/dashboard"]' routerLinkActive="active">Dashboard</a>
+      <a *ngIf="user.email !== ''" class="nav-item nav-link" (click)="logout()">Logout</a>
+      <ng-template #create>
+        <span class="nav-item nav-link" [routerLink]='["/login"]' routerLinkActive="active">Create Survey</span>
+      </ng-template>
     </div>
   </div>
 </nav>
