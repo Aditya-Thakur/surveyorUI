@@ -9,7 +9,7 @@ import { question } from 'src/app/models/survey';
 export class AddQuestionBarComponent implements OnInit {
 
   @Input() questionType: string
-  @Output() newQuestionEvent = new EventEmitter<question>();
+  @Output() newQuestionEvent = new EventEmitter<any>();
   currentQuestion: string;
   constructor() { }
 
@@ -22,7 +22,7 @@ export class AddQuestionBarComponent implements OnInit {
   }
 
   addNewQuestion(value: string) {
-    var newQuestion: question = {
+    var newQuestion = {
       questionType: this.questionType,
       questionContent: value,
       optionList: this.optionList

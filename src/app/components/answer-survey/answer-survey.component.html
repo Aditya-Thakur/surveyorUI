@@ -10,7 +10,7 @@
             <div class="row">
               <div class="col">
                 <div class="p-2" *ngFor="let q of survey.question; index as i">
-                  {{i + 1}}. <app-answer-bar [question] = "q"></app-answer-bar>
+                  {{i + 1}}. <app-answer-bar [question] = "q" (newAnswerEvent)="addAnswer($event)"></app-answer-bar>
                 </div>
               </div>
             </div>
@@ -18,7 +18,7 @@
           </div>
         </div>
         <div class="card-footer">
-          <button mat-raised-button color="accent" (click)="addNewResponse(newQuestion.value)">Submit</button>
+          <button mat-raised-button color="accent" (click)="uploadResponse()">Submit</button>
         </div>
       </div>
     </div>

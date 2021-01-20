@@ -1,29 +1,36 @@
 {{question.questionContent}}
 <div *ngIf="question.questionType == 'SA'">
   <mat-form-field style="width:100%" appearance="fill">
-    <input matInput>
+    <input matInput #userAnswer (change)="addNewResponse(userAnswer.value)">
   </mat-form-field>
 </div>  
 <div *ngIf="question.questionType == 'LA'">
   <mat-form-field style="width:100%" appearance="fill">
-    <textarea matInput></textarea>
+    <textarea matInput #userAnswer (change)="addNewResponse(userAnswer.value)"></textarea>
   </mat-form-field>
 </div>
 <div *ngIf="question.questionType == 'CB'">
   <section class="example-section">
     <div *ngFor="let option of question.optionList">
-      <mat-checkbox  class="example-margin">
+      <mat-checkbox class="example-margin" #checkbox="matCheckbox" [checked]="option.selected" 
+      (click)="checkboxClicked(checkbox, option)">
+      {{ option }}
+    </mat-checkbox>
+      <!-- <mat-checkbox  class="example-margin">
         {{option}}
-      </mat-checkbox>
+      </mat-checkbox> -->
     </div>
   </section>
 </div>
 <div *ngIf="question.questionType == 'MC'">
-  <mat-radio-group>
-    <div *ngFor="let option of question.optionList">
-        <mat-radio-button>{{option}}</mat-radio-button>
-    </div>
-  </mat-radio-group>
+<mat-radio-group
+  aria-labelledby="example-radio-group-label"
+  class="example-radio-group"
+  [(ngModel)]="selected">
+  <mat-radio-button class="example-radio-button" *ngFor="let option of question.optionList" [value]="option" (change)="radioChange(option)">
+    {{option}}&nbsp;
+  </mat-radio-button>
+</mat-radio-group>
 </div>
 <div *ngIf="question.questionType == 'R'">
   <app-star-rating [rating]="rating"  [starCount]="starCount" [color]="starColor" (ratingUpdated)="onRatingChanged($event)"></app-star-rating>

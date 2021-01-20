@@ -10,6 +10,11 @@ export class SurveyService {
 
   constructor(private http: HttpClient) { }
 
+  submitResponse(data): Observable<any> {
+    console.log(data);    
+    return this.http.post(environment.backendUrl + `response/addResponse`, data) as Observable<any>;
+  }
+
   fetchMySurveys(data): Observable<any> {
     return this.http.post(environment.backendUrl + `survey/fetchMySurveys`, data) as Observable<any>;
   }

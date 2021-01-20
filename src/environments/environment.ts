@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  backendUrl: 'http://localhost:3000/',
+  backendUrl: 'http://192.168.0.7:3000/',
   questionCategories: [ {
       name: "Short Answer",
       alias: "SA",

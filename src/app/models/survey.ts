@@ -8,6 +8,7 @@ export class Survey {
         
 }
 export class question  {
+    _id : string;
     questionType : string;
     questionContent : string;
     optionList : string[];
