@@ -12,7 +12,7 @@ const routes: Routes = [
   {path : 'create', component: CreateSurveyComponent},
   {path : 'survey/:id', component: AnswerSurveyComponent},
   {path : 'login', component: LoginComponent},
-  {path : 'view', component: CheckResponsesComponent},
+  {path : 'response/:id', component: CheckResponsesComponent},
   {path: 'dashboard', component: MySurveysComponent}
 ];
 
