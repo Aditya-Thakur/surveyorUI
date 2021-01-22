@@ -16,7 +16,7 @@
                     <mat-divider></mat-divider>
                     <div class="row">
                       <div class="col">Link: </div>
-                      <div class="col"><a>{{survey._id}}</a></div>
+                      <div class="col"><a style="color: white;" href="survey/{{survey._id}}" target="_blank">{{survey._id}}</a></div>
                     </div>
                     <mat-divider></mat-divider>
                     <div class="row">
@@ -38,9 +38,11 @@
                     </div>
                     <mat-divider></mat-divider>
                     <div class="row">
-                      <div class="col"></div>
                       <div class="col">
-                        <button mat-raised-button color="accent">Share</button>
+                        <button mat-raised-button (click)="checkResponse(survey._id)">Responses</button>
+                      </div>
+                      <div class="col">
+                        <button mat-raised-button (click)="share(survey._id)">Share</button>
                       </div>
                     </div>
                    </div>  
