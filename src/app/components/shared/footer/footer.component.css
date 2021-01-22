@@ -1,7 +1,11 @@
 .myFooter {
-    background: rgb(169, 190, 46);
-    color: #000;
     position: fixed;
+    height: 50px;
     width: 100%;
+    background-color: rgba(41, 41, 41);
+    color: white;
     bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-bottom: 0px;
 }

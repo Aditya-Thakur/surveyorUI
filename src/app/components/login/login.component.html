@@ -45,7 +45,7 @@
               (click)="login()">Login</button><br><br>
             <div *ngIf="showErrorMessage" class="alert alert-danger">Something is wrong! Try again!</div>
             <div class="secondary">Not registered yet!
-              <button class="btn btn-secondary btn-sm" (click)="activateRegister()">Sign Up</button>
+              <a style="color: white; text-decoration: underline;" (click)="activateRegister()">Sign Up</a>
               now</div>
 
           </div>
@@ -138,7 +138,7 @@
               Up</button><br><br>
             <div *ngIf="showErrorMessage" class="alert alert-danger">Something is wrong! Try again!</div>
             <div class="secondary">Already registered!
-              <button class="btn btn-secondary btn-sm" (click)="activateLogin()">Login</button>
+              <a style="color: white; text-decoration: underline;" (click)="activateLogin()">Login</a>
               now</div>
 
           </div>
