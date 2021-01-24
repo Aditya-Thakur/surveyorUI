@@ -24,6 +24,7 @@ import { StarRatingComponent } from './components/shared/star-rating/star-rating
 import { AnswerBarComponent } from './components/shared/answer-bar/answer-bar.component';
 import { LostComponent } from './components/shared/lost/lost.component';
 import { ErrorComponent } from './components/shared/error/error.component';
+import { ThankYouComponent } from './components/shared/thank-you/thank-you.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +42,8 @@ import { ErrorComponent } from './components/shared/error/error.component';
     StarRatingComponent,
     AnswerBarComponent,
     LostComponent,
-    ErrorComponent
+    ErrorComponent,
+    ThankYouComponent
   ],
   imports: [
     BrowserModule,

@@ -17,7 +17,11 @@ export class AnswerSurveyComponent implements OnInit {
     this.id = this.route.snapshot.paramMap.get('id');
     this.surveyService.fetchThisSurvey(this.id).subscribe(
       res => {
+        if(res.status) {
+          console.log(res);          
+        } else {
         this.survey = res;
+      }
       }
     )
   }
@@ -51,7 +55,7 @@ export class AnswerSurveyComponent implements OnInit {
     this.surveyService.submitResponse(newSurvey).subscribe(
       res => {
         console.log(res);
-        this.router.navigateByUrl('/dashboard')
+        this.router.navigateByUrl('/thanks')
       }
     );0
   }

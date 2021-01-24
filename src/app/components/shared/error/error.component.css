@@ -65,6 +65,16 @@
 .left-section {
   width: 40%;
 }
+.go-home {
+  color: #fff;
+  background: linear-gradient(#0C0E10, #446182);
+  border: none;
+  padding: 10px 50px;
+  margin: 30px 0;
+  border-radius: 30px;
+  text-transform: capitalize;
+  /* box-shadow: 0 10px 16px 1px rgba(174, 199, 251, 1); */
+}
 @media (max-width: 770px) {
   .left-section {
     width: 100%;
