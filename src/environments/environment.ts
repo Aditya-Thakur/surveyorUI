@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  backendUrl: 'http://192.168.0.5:3000/',
-  frontEndUrl: 'http://192.168.0.5:4200/',
+  backendUrl: 'https://surveyor-be.vercel.app/',
+  frontEndUrl: 'https://surveyor-ui.vercel.app/',
   questionCategories: [ {
       name: "Short Answer",
       alias: "SA",
